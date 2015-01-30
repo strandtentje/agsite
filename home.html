@@ -1,0 +1,150 @@
+<div class="decorated title bar">
+	<img src="/static/logo-yellow.svg">
+	<h1>Apollo&shy;Geese/CLON</h1>
+	<div class="subtitle">
+		Scroll down and let me enlighten you.
+	</div>
+	<p>
+		(That googly-ass bird will haunt your dreams until you sanitize your methods, punk.)
+	</p>
+</div>
+<div class="blank title bar">
+	<h2>What's this</h2>
+	<p>
+		ApolloGeese represents a design philosophy, a collection of essential web-application back-end modules and <i>one</i> sexy language.
+	</p>
+	<p>
+		The current proof-of-concept implementation has been done in Mono C#. This means that you can use this neato fresh software stack on pretty much any platform. Without recompiling.
+	</p>
+</div>
+<div class="detaroced bar">
+	<img src="/static/structure.svg">
+	<h2>Apollo - Design philosophy</h2>
+	<p>
+		In any given software design, more than 90% of the program flow consists of merely a handful of similar elements chained together in a hierarchical fashion.
+	</p>
+	<p>
+		The first mission at hand is to set out a framework wherein elements may be chained together in a consistent manner, so that we impose some creative limitations on the developer. 
+	</p>
+	<p>
+		This means there has to be decided upon a protocol outlining the behavior of elements on their own, and a protocol outlining the communication between those elements.
+	</p>
+	<p>
+		Due to its heritage in web-development, and moreover, it's current relevance therein, all functional elements within a program flow will be referred to as <b>Service</b> in both software and documentation. All inter-<b>Service</b> communication will be referred to as <b>Interaction</b>s
+	</p>
+</div>
+<div class="even bar">
+	<div class="blank half">		
+		<h3>Services</h3>
+		<p>
+			Services expose:
+		</p>
+		<ul>
+			<li>
+				A Description of the service, wherein they aptly describe their purpose in relation to their current situation within a program flow.
+			</li>
+			<li>
+				A single entry point used to provide the service with context by means of an Interaction originating from hierarchically upstream services.
+			</li>
+			<li>
+				Multiple named exit points used to propagate richer context by means of (new) Interactions to hierarchically downstream services.
+			</li>
+		</ul>
+	</div>
+	<div class="blank half">
+		<h3>Interactions</h3>
+		<p>
+			Interactions expose:
+		</p>
+		<ul>
+			<li>
+				Means to store information on a key-value basis, including nested key-value stores. (Though admittedly,	don't you dare to even consider it)
+			</li>
+			<li>
+				Means to access ancestral Interactions; Interactions that have triggered the creation of the current one.
+			</li>
+			<li>
+				Means to access information stored on both the current and ancestral Interactions.
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="blank bar">
+	<h2>Geese - Web modules</h2>
+	<p>
+		Some modules for web-application back-end development have been developed in accordance to this design philosophy. Listed below is a selection of the most prominently used or otherwise useful ones.
+	</p>
+</div>
+<div class="blank even bar">
+	<div class="third">
+		<h3>HTTP Server</h3>
+		<p>
+			Listens on one or multiple ports and prefixes for incoming HTTP requests and creates a context wherein an URL-queue, header-data and body-data exist.
+		</p>
+	</div>
+	<div class="third">
+		<h3>SiteSubsection</h3>
+		<p>
+			Uses the URL-queue from existing context to deviate into an appropriate branch of the program flow. Enriches the context with the current URL-section name.
+		</p>
+	</div>
+	<div class="third">
+		<h3>Template</h3>
+		<p>
+			Uses either existing context or underlying branches to fill in template gaps.
+		</p>
+	</div>
+</div>
+<div class="blank even bar">
+	<div class="third">
+		<h3>GetFieldReader</h3>
+		<p>
+			Parses the query-section of the url (after the question mark), verifies this input and branches onwards depending whether or not verification was successful. It enriches the context with the parsed and sanitized input.
+		</p>
+	</div>
+	<div class="third">
+		<h3>PostFieldReader</h3>
+		<p>
+			Shares many traits with the <b>GetFieldReader</b>, but instead parses and verifies the HTML POST-body into context.
+		</p>
+	</div>
+	<div class="third">
+		<h3>MySqlQuerier</h3>
+		<p>
+			Uses values from context to fill in a parameterized query. It branches for each result, enriching context with acquired row values.
+		</p>
+	</div>
+</div>
+<div class="blank even title bar">
+	<div class="full">
+		<span class="subtitle">
+			<a href="/basicweblings">
+				There's more where that came from
+			</a>
+		</span>
+	</div>
+</div>
+<div class="detaroced bar">				
+	<h2>CLON - The language</h2>
+	<p>
+		Because the correct answer to the question "Should I make my product sound like a spaceship or an STD?" can and should only be "Both".
+	</p>
+	<p>
+		CLON is short for 'C-Like Object Notation'. That's because it looks like C, but it notates objects. It can define a flow of operation without conditionals, but shares syntactical traits with JSON otherwise. That means it's hierarchical and blows curly-ass brackets all over the place.
+	</p>
+	<p>
+		I will now explicitly restate that CLON is merely an 'Object Notation'. It is not a programming language. If you dare to claim otherwise, I dare you to make a turing machine in it.
+	</p>
+	<p>
+		CLON may be used to string Services together, such as but not limited to the above defined ones. Like so:
+	</p>
+	<textarea disabled="true" rows="30">{% example %}</textarea>
+	<p>
+		Now that's open source.
+	</p>
+</div>		
+<div class="blank title bar">
+	<p>
+		ApolloGeese/CLON is a project by Rob Tierolff.
+	</p>
+</div>	
