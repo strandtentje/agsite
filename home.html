@@ -19,18 +19,18 @@
 </div>
 <div class="detaroced bar">
 	<img src="/static/structure.svg">
-	<h2>Apollo - Design philosophy</h2>
+	<h2>Design philosophy</h2>
 	<p>
-		In any given software design, more than 90% of the program flow consists of merely a handful of similar elements chained together in a hierarchical fashion.
+		In any given software design, more than 90% of the program flow consists of merely a handful of similar elements chained together in a hierarchical fashion, exchanging typically trivial amounts of information.
 	</p>
 	<p>
-		The first mission at hand is to set out a framework wherein elements may be chained together in a consistent manner, so that we impose some creative limitations on the developer. 
+		We can use this knowledge to develop a simpler, quicker way of creating software than we're used to from conventional development platforms such as Python, PHP and ASP.Net. This development-time speedboost could be achieved while imposing only some minor, creative limitations on developers.
 	</p>
 	<p>
-		This means there has to be decided upon a protocol outlining the behavior of elements on their own, and a protocol outlining the communication between those elements.
+		We'd have to decide upon a protocol outlining the behavior and structure of non-distinct elements in software, and a protocol outlining the communication between those elements.
 	</p>
 	<p>
-		Due to its heritage in web-development, and moreover, it's current relevance therein, all functional elements within a program flow will be referred to as <b>Service</b> in both software and documentation. All inter-<b>Service</b> communication will be referred to as <b>Interaction</b>s
+		For ApolloGeese, precisely this has been done; non-distinct elements will be referred to as <b>Services</b>, communication between <b>Services</b> is done by means of <b>Interactions</b>
 	</p>
 </div>
 <div class="even bar">
@@ -70,9 +70,12 @@
 	</div>
 </div>
 <div class="blank bar">
-	<h2>Geese - Web modules</h2>
+	<h2>Modules</h2>
 	<p>
-		Some modules for web-application back-end development have been developed in accordance to this design philosophy. Listed below is a selection of the most prominently used or otherwise useful ones.
+		Well over twenty modules and have already been developed in accordance to this philosophy.
+	</p>
+	<p>
+		Below, six modules most relevant to web development have been highlighted:
 	</p>
 </div>
 <div class="blank even bar">
@@ -118,29 +121,41 @@
 <div class="blank even title bar">
 	<div class="full">
 		<span class="subtitle">
-			<a href="/basicweblings">
-				There's more where that came from
+			<a href="/modules">
+				View a list of all modules
 			</a>
 		</span>
 	</div>
 </div>
-<div class="detaroced bar">				
+<div class="detaroced bar">	
+	<h2>Tying it together</h2>
+	<p>
+		We now have a philosophy, and a handful of very useful modules, but no means to tie them together other than Mono-languages. And let's be fair: the temptation to deviate from the design philosophy would soon be too great with such a complex language.				
+	</p>	
+	<p>
+		Furthermore, the Mono/.NET languages would serve a problem too so soon as (I failed to mention this earlier) the <i>actual</i> implementation is done in C.
+	</p>		
+	<p>
+		So I proudly present you:
+	</p>	
 	<h2>CLON - The language</h2>
 	<p>
 		Because the correct answer to the question "Should I make my product sound like a spaceship or an STD?" can and should only be "Both".
 	</p>
 	<p>
-		CLON is short for 'C-Like Object Notation'. That's because it looks like C, but it notates objects. It can define a flow of operation without conditionals, but shares syntactical traits with JSON otherwise. That means it's hierarchical and blows curly-ass brackets all over the place.
+		CLON is short for 'C-Like Object Notation'. That's because it looks a little like C, but it notates objects. It can define a flow of operation without conditionals, but shares syntactical traits with JSON otherwise. That means it's hierarchical and blows curly-ass brackets all over the place.
 	</p>
 	<p>
-		I will now explicitly restate that CLON is merely an 'Object Notation'. It is not a programming language. If you dare to claim otherwise, I dare you to make a turing machine in it.
+		I will now explicitly restate that CLON is merely an 'Object Notation'. It is not a programming language. If you dare to claim otherwise, I dare you to make a turing machine in it. (Instructing ApolloGeese to behave like a Turing machine doesn't count, ew.)
 	</p>
 	<p>
-		CLON may be used to string Services together, such as but not limited to the above defined ones. Like so:
+		As advertised, CLON may be used to string Services together, such as but not limited to the above defined ones. Like so:
 	</p>
-	<textarea disabled="true" rows="30">{% example %}</textarea>
+	<p class="code">
+		{% example %}
+	</p>
 	<p>
-		Now that's open source.
+		This is the file that is currently defining this very page; syntax-highlighted on the spot and cached since the last modification. Now that's open source.
 	</p>
 </div>		
 <div class="blank title bar">

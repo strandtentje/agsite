@@ -1,4 +1,5 @@
 @import url("nav.css");
+@import url("syntax.css");
 
 body {
 	font-family: 'Open Sans', sans-serif;
@@ -90,13 +91,15 @@ b, h1, h2, h3 {
 	}
 }
 
+.code {
+	font-family: monospace;
+}
 
 .bar>textarea {
 	background: #2c2c2c;
 	color: white;
 	font-size: 12pt;
 	border: none;
-	width: 80%;
 	margin: 32px 2% 0px;
 }
 
