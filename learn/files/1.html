@@ -1,0 +1,55 @@
+<a class="previous" href="/learn/0.html">&laquo; Oi, too fast!</a>
+<h1>Getting started with ApolloGeese and CLON</h1>
+<h2>Preparing your system</h2>
+<p>
+	On Windows, the .NET framework is required. Given you're running a fairly
+	recent Windows version (such as Windows 7), and you politely let your monthly software updates happen, you have this.
+</p>
+<p>
+	On UNIX (Linux, BSD, OSX, etc.), you can use Mono. The build we're using
+	has been tested using Mono version 3.2.8. Later versions should work fine,
+	earlier versions might not. On Debian-based Linux-distributions you may
+	install mono using the command <span class="monospace">apt-get install mono-runtime</span>, or <span class="monospace">apt-get install mono-complete</span> if you feel like tinkering with the inner workings of ApolloGeese.
+</p>
+<p>
+	To fully utilize the software package, you'll need a MySQL server install. MariaDB is fine too. I won't do any statements on whether or not it'll do PostegreSQL, but I reckon it could.
+</p>
+<h2>Acquiring 'the package'</h2>
+<p>
+	You may acquire the most recent release of ApolloGeese on github, along
+	with the source package. The most recent release at the time of writing this
+	is <a href="https://github.com/strandtentje/apollogeese/releases/tag/v0.1">pre-release v0.1</a>.
+</p>
+<p>
+	Extract the package and navigate to the freshly made directory. Notice how there's an executable called 'Geese.exe', a bunch of dll's, an index.html and apollogeese.conf. The latter two are example files.
+</p>
+<h2>Configuring pt. 1</h2>
+<p>
+	You may skip this section if you don't have any other (development) servers running on your system, on port 8080.
+</p>
+<p>
+	The default configuration of ApolloGeese creates a debug server on port
+	8080. If this is not to your likings, you may modify this setting in 
+	apollogeese.conf.
+</p>
+<p>
+	Just halfway the file you will see a line saying 'prefixes = ["http://*:8080/"]' - this means apollogeese will spew out whatever it's told to spew out at any (*) domain name, on port 8080.
+</p>
+<p>
+	Modify this to another port and optionally domain so apollogeese can be run side-by-side with your existing development stack.
+</p>
+<h2>Running apollogeese</h2>
+<p>
+	On Windows you may simply double-click Geese.exe. It will spawn a terminal window and start producing a log. Closing this window closes the server, too.
+</p>
+<p>
+	On UNIX, assuming you have mono installed, use a terminal to execute the command <span class="monospace">mono Geese.exe</span>. It will start producing some log information. Ctrl-C'ing out of this will terminate the server. You may run apollogeese in a tmux or screen session for some of that faux daemon goodness.
+</p>
+<h2>Testing apollogeese</h2>
+<p>
+	Open your webbrowser and navigate to <a href="http://localhost:8080/">http://localhost:8080/</a>, or the alternative domain+port combination you've configured.
+</p>
+<p>
+	If you see a page announcing that it is in fact, alive, with a rather ominous 'exquisite', then you're all set to start making things in apollogeese!
+</p>
+<a class="next" href="/learn/2.html">Onwards &raquo;</a>

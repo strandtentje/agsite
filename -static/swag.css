@@ -7,12 +7,15 @@ body {
 	margin: 0;
 	padding: 0;
 	background: #2c2c2c;
+}
+
+body.main {
 	background-image: url('/static/maan3.jpg');
 	background-repeat: no-repeat;
 	background-size: contain;
 }
 
-b, h1, h2, h3 {
+b, h1, h2, h3, a, h4 {
 	color: #ffdc63;
 }
 
@@ -28,6 +31,28 @@ b, h1, h2, h3 {
 
 .full h3, .half h3, .third h3 {
 	margin-top: 0;
+}
+
+a.next {
+	padding: 15px;
+	background: rgba(0,0,0,0.9);	
+	position: fixed;
+	top: 37px;
+	z-index: 30;
+	left: calc(50% + 13cm);
+}
+
+a.previous + h1 {
+	clear: both;
+}
+
+a.previous {
+	z-index: 30;
+	padding: 15px;
+	background: rgba(0,0,0,0.9);
+	position: fixed;
+	top: 37px;
+	right: calc(50% + 13cm);
 }
 
 @media (min-width: 900px) {
@@ -103,9 +128,10 @@ b, h1, h2, h3 {
 	margin: 32px 2% 0px;
 }
 
-.bar>h2, .bar>p, .bar>h3, .bar>ul {
+.bar>h2, .bar>p, .bar>h3, .bar>ul, .bar>h1, .bar>h4 {
 	padding-top: 32px;
-	margin: 0px 2% 0px;
+	margin: 0px auto 0px;
+	max-width: 25cm;
 }
 
 .even h2, .even p, .even h3, .even ul {
@@ -120,10 +146,6 @@ b, h1, h2, h3 {
 
 	.bar>textarea {
 		margin: 32px 10% 0px;
-	}
-
-	.bar>h2, .bar>p, .bar>h3, .bar>ul {
-		margin: 0px 10% 0px;
 	}
 }
 
@@ -198,4 +220,61 @@ b, h1, h2, h3 {
 .blank {
 	background: #888;
 	color: white;
+}
+
+.monospace {
+	background: rgba(80,80,80,0.8);
+	color: white;
+	border: solid 1px black;
+	font-family: monospace;
+	white-space: nowrap;
+}
+
+.funfact {
+	margin: 16px auto;
+	max-width: 25cm;
+	padding: 16px;
+	background: rgba(80,80,80,0.8);
+}
+
+.funfact h4 {
+	padding-top: 0;
+	margin: 0;
+}
+
+@media(min-width: 1400px) {
+	.funfact {			
+		width: 50%;
+		max-width: 5cm;
+		position: absolute;
+		font-size: 80%;
+		left: calc(50% + 13cm);
+		margin-top: -20%;
+	}
+
+	.funfact.r {		
+		left: auto;
+		right: calc(50% + 13cm);
+	}
+}
+
+span.monospace {
+	border-radius: 2px;
+}
+
+p.monospace {
+	padding: 8px;
+	border-radius: 4px;
+}
+
+textarea.monospace {
+	margin: 0px auto 0px;
+	width: 100%;
+	display: block;
+	border: solid 1px black;
+	background: rgba(255,255,255,0.1);
+	max-width: 25cm;
+	height: auto;
+	position: relative;
+	top: 8px;
 }

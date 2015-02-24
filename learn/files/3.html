@@ -1,0 +1,108 @@
+<a class="previous" href="/learn/2.html">&laquo; Oi, too fast!</a>
+<h1>Let's serve</h1>
+<p>
+	When we left off, we had one of the most inefficiently executed useless machines.
+</p>
+<textarea class="monospace" rows="6" readonly>{
+	plugins = [f"BasicHttpServer.dll", f"OutputComposing.dll"];
+	instances = {
+
+	};
+}</textarea>
+<h2>For Instances pt. 2</h2>
+<p>
+	We can invalidate this observation by instantiating a webserver. This can be done by assigning <span class="monospace">HttpService()</span> to any random name of the <span class="monospace">instances</span>-map, like so:
+</p>
+<textarea class="monospace" rows="6" readonly>{
+	plugins = [f"BasicHttpServer.dll", f"OutputComposing.dll"];
+	instances = {
+		anyrandomname = HttpService();
+	};
+}</textarea>
+<div class="funfact r">
+	<h4>()</h4>
+	<p>
+		<span class="monospace">()</span> behaves similarly to <span class="monospace">{}</span> in that it's a map. However, it's only occurrence is behind the name of a service, where it can be used for configuring.
+	</p>
+</div>
+<p>
+	You may attempt to run Geese, but you can expect it to bark at you on behalf of the HttpService, because you've not told it on what domain and port to listen for requests. Let's configure this now.
+</p>
+<div class="funfact">
+	<h4>HttpListener</h4>
+	<p>
+		At the time of writing this, the HttpService uses the <a href="https://msdn.microsoft.com/en-us/library/system.net.httplistener%28v=vs.100%29.aspx">HttpListener</a> supplied with Mono and .Net.
+	</p>
+</div>
+<p>
+	Let's assume we want to run the HTTP server on port 8080 of localhost. If it were to run there, we could access it in our browser at the URL <span class="monospace">http://localhost:8080/</span>. Hold on to that feeling.
+</p>
+<p>
+	We can instruct the HttpService to deal with requests on that URL by putting it in an array called <span class="monospace">prefixes</span> in its configuration <span class="monospace">()</span>'s. It would look like this:
+</p>
+<textarea class="monospace" rows="6" readonly>{
+	plugins = [f"BasicHttpServer.dll", f"OutputComposing.dll"];
+	instances = {
+		anyrandomname = HttpService(prefixes = ["http://localhost:8080/"]);
+	};
+}</textarea>
+<p>
+	Now run it and access the url <a href="http://localhost:8080/">http://localhost:8080/</a>. You'll see a white page. If you try to access it using i.e. your network hostname or FQDN, you'll be welcomed by an error page because the server isn't configured to respond to that.
+</p>
+<h2>Fill up the void</h2>
+<p>
+	The HttpService has a <a href="/doc/branch">branch</a> called 'http', where incoming requests come seeping out. 
+</p>
+<div class="funfact r">
+	<h4>Stubs</h4>
+	<p>
+		So why do you get a white page instead of an error? So soon as HttpService has parsed the HTTP request and tries to pass it on, it hits a <a href="/doc/stub">Stub</a>; no literally.
+	</p>
+	<p>
+		When the developer (that's you!) doesn't attach anything to a branch a Service has (like you did!), branches will be closed off by a 'stub'.
+	</p>
+	<p>
+		Stubs do nothing and hand the control back over to the originating service. In this case, that means a simple 200-response without additional headers or body will be returned.
+	</p>
+</div>
+<p>
+	Let's make the HttpService respond to the request with the contents of a file, regardless of what the request was. We can do this by attaching something to the 'http'-branch that's capable of writing data.
+</p>
+<p>
+	First, facilitate a map to put this branch, by suffixing <span class="monospace">HttpService()</span> with a <span class="monospace">{}</span>.
+</p>
+<p>
+	With this map, we may attach a service that's capable of writing data back, to the 'http'-branch. One service that can do this is the Template we discussed earlier.
+</p>
+<p>
+	Attach the Template to the http-branch by assigning a <span class="monospace">Template()</span> to <span class="monospace">http_branch</span> in the newly made map, like so:
+</p>
+<textarea class="monospace" rows="8" readonly>{
+	plugins = [f"BasicHttpServer.dll", f"OutputComposing.dll"];
+	instances = {
+		anyrandomname = HttpService(prefixes = ["http://localhost:8080/"]) {
+			http_branch = Template();
+		};
+	};
+}</textarea>
+<p>
+	You may notice that we never told the Template what file the actual template resides in. Geese notices this too when running it; it'll say something like:
+</p>
+<p class="monospace">
+	Template  produced an error on initialization:  templatefile mandatory
+</p>
+<p>
+	Set the template-file by assigning <span class="monospace">f"index.html"</span> to <span class="monospace">templatefile</span> in the Template settings. Like so: (any other file should do fine too)
+</p>
+<textarea class="monospace" rows="8" readonly>{
+	plugins = [f"BasicHttpServer.dll", f"OutputComposing.dll"];
+	instances = {
+		anyrandomname = HttpService(prefixes = ["http://localhost:8080/"]) {
+			http_branch = Template(templatefile = f"index.html");
+		};
+	};
+}</textarea>
+<p>
+	Run it. Hey, we're back at square one, but now we at least know how we got here.
+</p>
+<a class="next" href="/learn/4.html">Onwards! &raquo;</a>

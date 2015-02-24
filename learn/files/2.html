@@ -1,0 +1,79 @@
+<a class="previous" href="/learn/1.html">&laquo; Oi, too fast!</a>
+<h1>Let's destroy everything! (alt: configuring pt.&nbsp;2)</h1>
+<p>
+	Now that you know it works, it's time to exit Apollogeese (hereafter 'Geese') for now. Open up that apollogeese.conf and just clear it out. Make sure you've set your IDE or text editor to C-syntax; <a title="C-Like Object Notation">CLON</a> stays true to the heritage.
+</p>
+<p>
+	We're going to get familiar with both the design philosophy and the language at the same time. The first steps of this process will be made by reproducing the simple test situation we had just now, except all over again.
+</p>
+<h2>Some boiler-plating</h2>
+<p>
+	Place an opening and matching closing curly bracket in the file, like so: <span class="monospace">{}</span>.
+</p>
+<p>
+	Geese will probably bark at this minimalist artwork. This is expected behavior, given it requires some information to be present to 'boot' properly.
+</p>
+<div class="funfact">
+	<h4>{}</h4>
+	<p>
+		Internally, <span class="monospace">{}</span> will translate to a <a href="http://en.wikipedia.org/wiki/Associative_array">map</a>. For those who are anxious to read the Wikipedia-article on this: it's a list where items are assigned to names. If there's nothing between the curly brackets, there's nothing in the map.
+	</p>
+	<p>
+		Names denoting similar concepts are: Dictionary, dict, HashMap, lookup, KeyValueStore
+	</p>
+</div>
+<h3>Plug-ins</h3>
+<p>
+	First, the 'bootloader' needs to know what components (hereafter <a href="/doc/service">'Services'</a>) should be put available for use. Plug-ins come in DLL-files. We may configure what DLL-files we require, in the empty map you just made. Start of by assigning an empty array "<span class="monospace">[]</span>" to <span class="monospace">plug-ins</span>:
+</p>
+<textarea class="monospace" rows="5" readonly>{
+	// Note the semicolon at the end of this assignment.
+	// This is required.
+	plugins = [];
+}</textarea>
+<div class="funfact r">
+	<h4>[]</h4>
+	<p>
+		<span class="monospace">[]</span> will translate to an <a href="http://en.wikipedia.org/wiki/Array_data_structure">array</a>. It's not entirely unlike a map, except it doesn't have named items. Just items in some particular order. Once again, if there's nothing between the brackets, it's empty.
+	</p>
+	<p>
+		Names denoting similar concepts are: List, Enumerable, Collection or Concatenation.
+	</p>
+</div>
+<p>
+	This loads precisely zero plug-ins and thus zero Services. We however need <a href="/doc/template">'Template'</a> from <a href="/doc/outputcomposing">'OutputComposing.dll'</a> and <a href="/doc/httpservice">'HttpService'</a> from <a href="/doc/basichttpserver.dll">'BasicHttpServer.dll'</a> for our experiment. Add these DLL-names to the <span class="monospace">plug-ins</span>-array like so:
+</p>
+<textarea class="monospace" rows="5" readonly>{
+	// Note the semicolon at the end of this assignment.
+	// This is required.
+	plugins = [f"BasicHttpServer.dll", f"OutputComposing.dll"];
+}</textarea>
+<p>
+	Aside from the 'Template' and 'HttpService' we require, Geese will also load any other Services available in these DLL's. We're not going to worry about this too much.
+</p>
+<div class="funfact">
+	<h4>What the f?</h4>
+	<p>
+		The parser turns f-prefixed <a href="http://en.wikipedia.org/wiki/String_literal">string literals</a> into absolute <a href="http://en.wikipedia.org/wiki/Path_%28computing%29">paths</a> by concatenating the parent directory of the configuration file and the remaining string literal. 
+	</p>
+	<p>
+		For example: <span class="monospace">f"pie.txt"</span> in the file <span class="monospace">/home/rob/test.conf</span> will be stored in memory as <span class="monospace">/home/rob/pie.txt</span>.
+	</p>
+	<p>
+		This might upset you. We urge you to make tea if this happens to be the case. If it doesn't, still make tea.
+	</p>
+</div>
+<h2>For Instances pt. 1</h2>
+<p>
+	It's time to use the available services, now! Under the plug-ins-line you just added, add another line assigning an empty map to <span class="monospace">instances</span>, like so:
+</p>
+<textarea class="monospace" rows="6" readonly>{
+	plugins = [f"BasicHttpServer.dll", f"OutputComposing.dll"];
+	instances = {
+
+	};
+}</textarea>
+<p>
+	You may now run Geese.exe. It will execute and sit happily, but it will not do anything because we haven't actually added any services to this <span class="monospace">instances</span>-map. Close Geese again.
+</p>
+<a class="next" href="/learn/3.html">Onwards! &raquo;</a>
