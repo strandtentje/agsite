@@ -4,6 +4,9 @@
 		 <meta charset="UTF-8"> 
          <meta name="viewport" content="width=device-width">
 		 <link rel="stylesheet" href="/static/swag.css">
+		 <title>
+		 	ApolloGeese
+		 </title>
 	</head>
 	<body class="{% branchname %}">
 		<div class="navigation">
@@ -12,16 +15,19 @@
 			</div>
 			<ul class="menubox">
 				<li>
-					<a href="/">home</a>
+					<a href="/">
+						home
+					</a>
 				</li>
 				<li>
-					<a href="https://github.com/strandtentje/apollogeese">repository</a>
+					<a href="https://github.com/strandtentje/apollogeese">
+						repository
+					</a>
 				</li>
 				<li>
-					<a href="/binaries">binaries</a>
-				</li>
-				<li>
-					<a href="/doc">doc/spec</a>
+					<a href="https://github.com/strandtentje/apollogeese/releases">
+						releases
+					</a>
 				</li>
 				<li>
 					<a href="/learn">learn</a>
@@ -29,7 +35,12 @@
 			</ul>
 		</div>
 		<div class="content">
-			{% content %}	
+			{% content %}		
+			<div class="blank title bar">
+				<p>
+					ApolloGeese/CLON is a project by <a href="http://www.borreh.nl/">Rob Tierolff</a>.
+				</p>
+			</div>	
 		</div>	
 	</body>
 </html>
