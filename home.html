@@ -2,11 +2,8 @@
 	<img src="/static/logo-yellow.svg">
 	<h1>Apollo&shy;Geese/CLON</h1>
 	<div class="subtitle">
-		Scroll down and let me enlighten you.
+		Scroll down and be enlightened or <a class="download" href="https://github.com/strandtentje/apollogeese/releases">Download a Release immediately</a>
 	</div>
-	<p>
-		(That googly-ass bird will haunt your dreams until you sanitize your methods, punk.)
-	</p>
 </div>
 <div class="blank title bar">
 	<h2>What's this</h2>
@@ -14,7 +11,7 @@
 		ApolloGeese represents a design philosophy, a collection of essential web-application back-end modules and <i>one</i> sexy language.
 	</p>
 	<p>
-		The current proof-of-concept implementation has been done in Mono C#. This means that you can use this neato fresh software stack on pretty much any platform. Without recompiling.
+		The current proof-of-concept implementation has been done in Mono C#, which makes it quite portable.
 	</p>
 </div>
 <div class="detaroced bar">
@@ -37,14 +34,14 @@
 	<div class="blank half">		
 		<h3>Services</h3>
 		<p>
-			Services expose:
+			Services are the active components within a software system and expose:
 		</p>
 		<ul>
 			<li>
-				A Description of the service, wherein they aptly describe their purpose in relation to their current situation within a program flow.
+				Means of initial configuration through a constructor-like call.
 			</li>
 			<li>
-				A single entry point used to provide the service with context by means of an Interaction originating from hierarchically upstream services.
+				A single entry point used to activate the service and provide it with context produced by hierarchically upstream services.
 			</li>
 			<li>
 				Multiple named exit points used to propagate richer context by means of (new) Interactions to hierarchically downstream services.
@@ -54,7 +51,7 @@
 	<div class="blank half">
 		<h3>Interactions</h3>
 		<p>
-			Interactions expose:
+			Interactions are exchanged within a hierarchy of services and provide:
 		</p>
 		<ul>
 			<li>
@@ -72,7 +69,7 @@
 <div class="blank bar">
 	<h2>Modules</h2>
 	<p>
-		Well over forty modules have already been developed in accordance to this philosophy.
+		Well over forty modules have already been developed adhering to the Service/Interaction philosophy.
 	</p>
 	<p>
 		Below, six modules most relevant to web development have been highlighted:
@@ -82,19 +79,19 @@
 	<div class="third">
 		<h3>HTTP Server</h3>
 		<p>
-			Listens on one or multiple ports and prefixes for incoming HTTP requests and creates a context wherein an URL-queue, header-data and body-data exist.
+			Listens on one or multiple ports and prefixes for incoming HTTP requests and creates a context upon each request, wherein an URL-queue, header-data and body-data exist.
 		</p>
 	</div>
 	<div class="third">
 		<h3>SiteSubsection</h3>
 		<p>
-			Uses the URL-queue from existing context to deviate into an appropriate branch of the program flow. Enriches the context with the current URL-section name.
+			Uses the URL information from existing context to deviate into an appropriate branch of the program flow. Enriches the context with the current URL-section name. So, between the slashes.
 		</p>
 	</div>
 	<div class="third">
 		<h3>Template</h3>
 		<p>
-			Uses either existing context or underlying branches to fill in template gaps.
+			Uses either existing context or underlying branches to fill in template labels.
 		</p>
 	</div>
 </div>
@@ -102,7 +99,7 @@
 	<div class="third">
 		<h3>GetFieldReader</h3>
 		<p>
-			Parses the query-section of the url (after the question mark), verifies this input and branches onwards depending whether or not verification was successful. It enriches the context with the parsed and sanitized input.
+			Parses the query-section of the URL (after the '?'), verifies this input and branches onwards depending whether or not verification was successful. It enriches the context with the parsed and sanitized input.
 		</p>
 	</div>
 	<div class="third">
@@ -114,7 +111,7 @@
 	<div class="third">
 		<h3>MySqlQuerier</h3>
 		<p>
-			Uses values from context to fill in a parameterized query. It branches for each result, enriching context with acquired row values.
+			Uses values from context to fill in a parameterized query. It branches for single results, each result, and no results. It enriches context with acquired row values, if any.
 		</p>
 	</div>
 </div>
@@ -130,7 +127,7 @@
 <div class="detaroced bar">	
 	<h2>Tying it together</h2>
 	<p>
-		We now have a philosophy, and a handful of very useful modules, but no means to tie them together other than Mono-languages. And let's be fair: the temptation to deviate from the design philosophy would soon be too great with such a complex language.				
+		We now have a philosophy, and a handful of very useful modules, but no means to tie them together other than Mono-languages they were made in. And let's be fair: the temptation to deviate from the design philosophy would soon be too great with a more general purpose programming language.				
 	</p>	
 	<p>
 		Furthermore, the Mono/.NET languages would serve a problem too so soon as (I failed to mention this earlier) the <i>actual</i> implementation is done in C.
@@ -146,9 +143,6 @@
 		CLON is short for 'C-Like Object Notation'. That's because it looks a little like C, but it notates objects. It can define a flow of operation without conditionals, but shares syntactical traits with JSON otherwise. That means it's hierarchical and blows curly-ass brackets all over the place.
 	</p>
 	<p>
-		I will now explicitly restate that CLON is merely an 'Object Notation'. It is not a programming language. If you dare to claim otherwise, I dare you to make a turing machine in it. (Instructing ApolloGeese to behave like a Turing machine doesn't count, ew.)
-	</p>
-	<p>
 		As advertised, CLON may be used to string Services together, such as but not limited to the above defined ones. Like so:
 	</p>
 	<p class="code">
@@ -156,10 +150,5 @@
 	</p>
 	<p>
 		This is the file that is currently defining this very page; syntax-highlighted on the spot and cached since the last modification. Now that's open source.
-	</p>
-</div>		
-<div class="blank title bar">
-	<p>
-		ApolloGeese/CLON is a project by Rob Tierolff.
 	</p>
 </div>	
