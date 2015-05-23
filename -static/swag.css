@@ -33,6 +33,11 @@ b, h1, h2, h3, a, h4 {
 	margin-top: 0;
 }
 
+.title.bar .subtitle a.download {
+	display: block;
+	color: rgba(103, 255, 99, 1);
+}
+
 a.next {
 	padding: 15px;
 	background: rgba(0,0,0,0.9);	
@@ -144,9 +149,27 @@ a.previous {
 		font-size: 15pt;
 	}
 
-	.bar>textarea {
-		margin: 32px 10% 0px;
+	.bar > textarea {
+	    margin: 32px auto 0px;
+	    width: 25cm;
+	    display: block;
 	}
+}
+
+table {
+	margin: 0px auto 0px;
+}
+
+tr:nth-child(2n + 1) {
+	background: #444;
+}
+
+tr:nth-child(2n + 1) {
+	background: #666;
+}
+
+td:nth-child(2n + 1) {
+	background: rgba(255, 255, 255, 0.15);
 }
 
 .title.bar {
