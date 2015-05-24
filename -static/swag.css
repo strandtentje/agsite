@@ -119,6 +119,11 @@ a.previous {
 	.even .third + .third + .third {
 		margin-right: 16px;
 	}
+
+	.padded.bar {
+		width: 25cm;
+		margin: 0 auto;
+	};
 }
 
 .code {
@@ -300,4 +305,8 @@ textarea.monospace {
 	height: auto;
 	position: relative;
 	top: 8px;
+}
+
+label, input, textareas {
+	display: block;
 }
