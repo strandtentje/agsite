@@ -108,4 +108,26 @@
 <p>
 	Run it. Hey, we're back at square one, but now we at least know how we got here.
 </p>
+<h2>Abbreviate!</h4>
+<p>
+	Given that the Template-service doesn't do more than providing a template, one could argue wasting 15 characters on <span class="monospace">templatefile = </span>is a bit inconvenient.
+</p>
+<p>
+	"Implied primary setting keys" may be the solution to this; find out how it works after the enclosed 'fun fact' (possibly on the left, or down here.)
+</p>
+<div class="funfact l">
+	<h4>Best practice</h4>
+	<p>
+		ApolloGeese and especially CLON have been designed to be concise and pragmatic with no shortcuts and a minimal potential cognitive payload. However, in some cases it's not entirely clear than the most pragmatic approach would be.
+	</p>
+	<p>
+		The concept of 'Implied primary setting keys' is one of those cases. Currently, explicitly stating primary setting keys is regarded as a slightly better practice because it's more explicit. You're not discouraged from implying them, however.
+	</p>
+</div>
+<p>
+	<span class="monospace">Template</span>, among other Services, is a service that can be initialized with only a string expression within the configuring <span class="monospace">()</span>. The <span class="monospace">templatefile</span>-key is implied, because it's the primary setting for <span class="monospace">Template</span>s. That's what makes it an implied primary setting key.
+</p>
+<p>
+	So, <span class="monospace">Template(f"index.html");</span> does the same as <span class="monospace">Template(templatefile = f"index.html");</span> - try it!
+</p>
 <a class="next" href="/learn/4.html">Onwards! &raquo;</a>
