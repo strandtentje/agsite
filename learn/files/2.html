@@ -24,7 +24,7 @@
 </div>
 <h3>Plug-ins</h3>
 <p>
-	First, the 'bootloader' needs to know what components (hereafter <a href="/doc/service">'Services'</a>) should be put available for use. Plug-ins come in DLL-files. We may configure what DLL-files we require, in the empty map you just made. Start of by assigning an empty array "<span class="monospace">[]</span>" to <span class="monospace">plug-ins</span>:
+	First, the 'bootloader' needs to know what components (hereafter <a href="/wiki/Service">'Services'</a>) should be put available for use. Plug-ins come in DLL-files. We may configure what DLL-files we require, in the empty map you just made. Start of by assigning an empty array "<span class="monospace">[]</span>" to <span class="monospace">plug-ins</span>:
 </p>
 <textarea class="monospace" rows="5" readonly>{
 	// Note the semicolon at the end of this assignment.
@@ -41,7 +41,7 @@
 	</p>
 </div>
 <p>
-	This loads precisely zero plug-ins and thus zero Services. We however need <a href="/doc/template">'Template'</a> from <a href="/doc/outputcomposing">'OutputComposing.dll'</a> and <a href="/doc/httpservice">'HttpService'</a> from <a href="/doc/basichttpserver.dll">'BasicHttpServer.dll'</a> for our experiment. Add these DLL-names to the <span class="monospace">plug-ins</span>-array like so:
+	This loads precisely zero plug-ins and thus zero Services. We however need <a href="/wiki/Template">'Template'</a> from <a href="/wiki/OutputComposing">'OutputComposing.dll'</a> and <a href="/wiki/HttpService">'HttpService'</a> from <a href="/wiki/BasicHttpServer">'BasicHttpServer.dll'</a> for our experiment. Add these DLL-names to the <span class="monospace">plug-ins</span>-array like so:
 </p>
 <textarea class="monospace" rows="5" readonly>{
 	// Note the semicolon at the end of this assignment.
