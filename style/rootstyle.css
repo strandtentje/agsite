@@ -39,3 +39,7 @@ p, .logobox, ul {
 	box-sizing: border-box;
 	max-width: 18cm;
 }
+
+p.code {
+	font-family: monospace;
+}
