@@ -1,0 +1,41 @@
+body {
+	font-family: 'Georgia', serif;
+}
+
+.logobox a {
+	display: block;
+	float: right;
+	height: 64px;
+	font-size: 24pt;
+	vertical-align: middle;
+	line-height: 64px;
+}
+
+.logobox a img {
+	width: 64px;
+	float: right;
+}
+
+ul.menubox {
+	list-style-type: none;	
+	line-height: 64px;
+	padding: 0;
+	margin: 0;
+}
+
+ul.menubox li {
+	display: inline;
+}
+
+h1, h2, h3, h4, small {
+	font-family: 'Helvetica', sans-serif;
+}
+
+small {
+	font-size: 9pt;
+}
+
+p, .logobox, ul {
+	box-sizing: border-box;
+	max-width: 18cm;
+}
