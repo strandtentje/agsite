@@ -1,154 +1,140 @@
 <div class="decorated title bar">
-	<img src="/static/logo-yellow.svg">
+	<!-- <img src="/static/logo-yellow.svg"> -->
 	<h1>Apollo&shy;Geese/CLON</h1>
 	<div class="subtitle">
-		Scroll down and be enlightened or <a class="download" href="https://github.com/strandtentje/apollogeese/releases">Download a Release immediately</a>
+		Read on or <a class="download" href="https://github.com/strandtentje/apollogeese/releases">Download a Release immediately</a>
 	</div>
 </div>
 <div class="blank title bar">
-	<h2>What's this</h2>
 	<p>
-		ApolloGeese represents a design philosophy, a collection of essential web-application back-end modules and <i>one</i> sexy language.
+		ApolloGeese represents a design philosophy, a collection of modules relevant to web development and a simple object-notation language to loosely couple them together according to the design philosophy.
 	</p>
 	<p>
-		The current proof-of-concept implementation has been done in Mono C#, which makes it quite portable.
+		The current proof-of-concept implementation has been done in Mono C#.
 	</p>
 </div>
 <div class="detaroced bar">
-	<img src="/static/structure.svg">
-	<h2>Design philosophy</h2>
+	<h2>Defects in modern software architecture</h2>
 	<p>
-		In any given software design, more than 90% of the program flow consists of merely a handful of similar elements chained together in a hierarchical fashion, exchanging typically trivial amounts of information.
+		In any given software design, more than 90%* of the program flow consists of merely a handful of similar elements chained together in a hierarchical fashion, exchanging typically trivial amounts of information. Tight coupling however negates this effect and makes software projects less sustainable.
+	</p>
+	<small>* 90% of percentages are just made up</small>
+	<h2>Creative limitations</h2>
+	<p>
+		By restricting the amount of intricacies a developer may introduce to a software product, and offering only very abstract components and relations, a gain in development time may be achieved. An even larger gain in quality may be achieved.
 	</p>
 	<p>
-		We can use this knowledge to develop a simpler, quicker way of creating software than we're used to from conventional development platforms such as Python, PHP and ASP.Net. This development-time speedboost could be achieved while imposing only some minor, creative limitations on developers.
+		ApolloGeese/CLON aims to implement this theory using a framework and language (more on the latter, later.)
+	</p> 
+	<h2>Implementation</h2>
+	<p>
+		At the basis of the design philosophy lay Services and Interactions. Services are the active components of a software design. Interactions provide the connections over which Services may exchange data.
 	</p>
 	<p>
-		We'd have to decide upon a protocol outlining the behavior and structure of non-distinct elements in software, and a protocol outlining the communication between those elements.
-	</p>
+		A developer using ApolloGeese only needs to specify what Services are being used and where they should connect; underlying implementation and negotiation on the type of Interaction used, is transparent to the developer.
+	</p>		
+	<h3>Services</h3>
 	<p>
-		For ApolloGeese, precisely this has been done; non-distinct elements will be referred to as <b>Services</b>, communication between <b>Services</b> is done by means of <b>Interactions</b>
+		Services in short, provide:
 	</p>
-</div>
-<div class="even bar">
-	<div class="blank half">		
-		<h3>Services</h3>
-		<p>
-			Services are the active components within a software system and expose:
-		</p>
-		<ul>
-			<li>
-				Means of initial configuration through a constructor-like call.
-			</li>
-			<li>
-				A single entry point used to activate the service and provide it with context produced by hierarchically upstream services.
-			</li>
-			<li>
-				Multiple named exit points used to propagate richer context by means of (new) Interactions to hierarchically downstream services.
-			</li>
-		</ul>
-	</div>
-	<div class="blank half">
-		<h3>Interactions</h3>
-		<p>
-			Interactions are exchanged within a hierarchy of services and provide:
-		</p>
-		<ul>
-			<li>
-				Means to store information on a key-value basis, including nested key-value stores. (Though admittedly,	don't you dare to even consider it)
-			</li>
-			<li>
-				Means to access ancestral Interactions; Interactions that have triggered the creation of the current one.
-			</li>
-			<li>
-				Means to access information stored on both the current and ancestral Interactions.
-			</li>
-		</ul>
-	</div>
+	<ul>
+		<li>
+			Functionality.
+		</li>
+		<li>
+			Means of initial configuration of this functionality through a constructor-like call.
+		</li>
+		<li>
+			A single entry point used to activate the service and provide it with context produced by services that came before it.
+		</li>
+		<li>
+			Multiple named exit points used to propagate richer context to hierarchically downstream services, by means of Interactions
+		</li>
+	</ul>
+	<h3>Interactions</h3>
+	<p>
+		Interactions in short, provide:
+	</p>
+	<ul>
+		<li>
+			Hierarchy and Communications.
+		</li>
+		<li>
+			Storage of arbitrary information on a key-value basis.
+		</li>
+		<li>
+			Means to access and mutate information about on earlier interaction in the hierarchy.
+		</li>
+	</ul>
 </div>
 <div class="blank bar">
 	<h2>Modules</h2>
 	<p>
-		Well over forty modules have already been developed adhering to the Service/Interaction philosophy.
+		About 40 Services have been development at the time of writing this, which provides a toolkit sizable enough to quickly put together most common website scenarios.
 	</p>
 	<p>
-		Below, six modules most relevant to web development have been highlighted:
+		A couple of modules most prevalent in software projects built using ApolloGeese/CLON
+	</p>
+	<h3>HTTP Server</h3>
+	<p>
+		Listens on one or multiple ports and prefixes for incoming HTTP requests and creates an Interaction upon each request, wherein an URL-queue, header-data and body-data exist.
+	</p>
+	<h3>SiteSubsection</h3>
+	<p>
+		Uses the URL information from previous Interactions to deviate into an appropriate branch of the program flow. Provides Interactions with the current URL-/section/ name.
+	</p>
+	<h3>Template</h3>
+	<p>
+		Uses either existing information from preceding Interactions or underlying branches to fill in template labels.
+	</p>
+	<h3>GetFieldReader</h3>
+	<p>
+		Parses the query-section of the URL, verifies this input and branches onwards depending whether or not verification was successful. It provides an Interaction with the parsed and sanitized input.
+	</p>
+	<h3>PostFieldReader</h3>
+	<p>
+		Shares many traits with the <b>GetFieldReader</b>, but instead parses and verifies the HTML POST-body into an Interaction.
+	</p>	
+	<h3>MySqlQuerier</h3>
+	<p>
+		Uses values from earlier Interactions to fill in a parameterized query. It branches for single results, each result, and no results. It provides Interactions with acquired row values, if any.
+	</p>	
+	<h3>More Services...</h3>
+	<p>		
+		<a href="/wiki/servicelist">
+			View a list of all modules on the Wiki
+		</a>
 	</p>
 </div>
-<div class="blank even bar">
-	<div class="third">
-		<h3>HTTP Server</h3>
-		<p>
-			Listens on one or multiple ports and prefixes for incoming HTTP requests and creates a context upon each request, wherein an URL-queue, header-data and body-data exist.
-		</p>
-	</div>
-	<div class="third">
-		<h3>SiteSubsection</h3>
-		<p>
-			Uses the URL information from existing context to deviate into an appropriate branch of the program flow. Enriches the context with the current URL-section name. So, between the slashes.
-		</p>
-	</div>
-	<div class="third">
-		<h3>Template</h3>
-		<p>
-			Uses either existing context or underlying branches to fill in template labels.
-		</p>
-	</div>
-</div>
-<div class="blank even bar">
-	<div class="third">
-		<h3>GetFieldReader</h3>
-		<p>
-			Parses the query-section of the URL (after the '?'), verifies this input and branches onwards depending whether or not verification was successful. It enriches the context with the parsed and sanitized input.
-		</p>
-	</div>
-	<div class="third">
-		<h3>PostFieldReader</h3>
-		<p>
-			Shares many traits with the <b>GetFieldReader</b>, but instead parses and verifies the HTML POST-body into context.
-		</p>
-	</div>
-	<div class="third">
-		<h3>MySqlQuerier</h3>
-		<p>
-			Uses values from context to fill in a parameterized query. It branches for single results, each result, and no results. It enriches context with acquired row values, if any.
-		</p>
-	</div>
-</div>
-<div class="blank even title bar">
-	<div class="full">
-		<span class="subtitle">
-			<a href="/wiki/servicelist">
-				View a list of all modules on the Wiki
-			</a>
-		</span>
-	</div>
-</div>
+
 <div class="detaroced bar">	
-	<h2>Tying it together</h2>
+	<h2>Connecting Services</h2>
 	<p>
-		We now have a philosophy, and a handful of very useful modules, but no means to tie them together other than Mono-languages they were made in. And let's be fair: the temptation to deviate from the design philosophy would soon be too great with a more general purpose programming language.				
-	</p>	
+		It would be most easy to settle with the philosophy and the modules, and to couple them together using existing development platforms such as Python, C# or Java. You could do this, it would however come with two disadvantages:
+	</p>
+	<ul>
+		<li>
+			Existing languages come with a payload of features we don't require here
+		</li>
+		<li>
+			The temptation would arise to implement irresponsibly tight couplings like we're used to doing with these languages.
+		</li>
+	</ul>
+	<h3>CLON</h3>
 	<p>
-		Furthermore, the Mono/.NET languages would serve a problem too so soon as (I failed to mention this earlier) the <i>actual</i> implementation is done in C.
-	</p>		
+		Aside from sounding like an STD capable of traveling through space, CLON is the language that aims to tackle these issues by being:
+	</p>
+	<ul>
+		<li>Light and simple</li>
+		<li>Like, Really simple</li>
+	</ul>
 	<p>
-		So I proudly present you:
-	</p>	
-	<h2>CLON - The language</h2>
-	<p>
-		Because the correct answer to the question "Should I make my product sound like a spaceship or an STD?" can and should only be "Both".
+		CLON is short for 'C-Like Object Notation', and shares some traits with JSON
 	</p>
 	<p>
-		CLON is short for 'C-Like Object Notation'. That's because it looks a little like C, but it notates objects. It can define a flow of operation without conditionals, but shares syntactical traits with JSON otherwise. That means it's hierarchical and blows curly-ass brackets all over the place.
-	</p>
-	<p>
-		As advertised, CLON may be used to string Services together, such as but not limited to the above defined ones. Like so:
+		CLON may be used to string ApolloGeese services together, like we did for this website as follows:
 	</p>
 	<p class="code">
 		{% example %}
-	</p>
-	<p>
-		This is the file that is currently defining this very page; syntax-highlighted on the spot and cached since the last modification. Now that's open source.
 	</p>
 </div>	
