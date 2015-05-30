@@ -35,7 +35,7 @@ small {
 	font-size: 9pt;
 }
 
-p, .logobox, ul {
+p, .logobox, ul, table {
 	box-sizing: border-box;
 	max-width: 18cm;
 }
