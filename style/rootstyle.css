@@ -5,27 +5,59 @@ html {
 body {
 	background: white;
 	font-family: 'Georgia', serif;
+	margin: 0.25cm;
 }
 
 .navigation {
 	color: white;
 	background: black;
-	animation: deglow 0.5s;
 }
 
-.navigation:hover {
-	background: #333;
-	animation: glow 2s;
+.logobox a {
+	font-size: 24pt;
+	vertical-align: middle;
 }
 
-@keyframes deglow {
-	from { background: #333; }
-	to { background: #000; }
+.logobox a img {
+	width: 64px;
+	position: absolute;
+	right: 0.25cm;
+	top: 0.25cm;
 }
 
-@keyframes glow {
-	from { background: #000; }
-	to { background: #333; }
+@media (min-width: 501px) {
+	.logobox a {
+		display: block;
+		float: right;
+		height: 64px;
+		line-height: 64px;
+	}
+
+	.logobox a img {
+		width: 64px;
+		position: static;
+		float: right;
+	}
+
+
+	.navigation {
+		animation: deglow 0.5s;
+	}
+
+	.navigation:hover {
+		background: #333;
+		animation: glow 2s;
+	}
+
+	@keyframes deglow {
+		from { background: #333; }
+		to { background: #000; }
+	}
+
+	@keyframes glow {
+		from { background: #000; }
+		to { background: #333; }
+	}
 }
 
 .navigation a {
@@ -42,19 +74,6 @@ body {
 	color: yellow;
 }
 
-.logobox a {
-	display: block;
-	float: right;
-	height: 64px;
-	font-size: 24pt;
-	vertical-align: middle;
-	line-height: 64px;
-}
-
-.logobox a img {
-	width: 64px;
-	float: right;
-}
 
 ul.menubox {
 	list-style-type: none;	
@@ -84,7 +103,7 @@ p, .logobox, ul, table, h1, h2, h3 {
 }
 
 h1, h2 ,h3 {
-	
+
 	padding-top: 1ex;
 }
 
