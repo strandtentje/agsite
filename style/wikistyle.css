@@ -1,0 +1,27 @@
+label, input, textarea {
+	display: block;
+}
+
+.example {
+	max-width: 18cm;
+		margin-left: auto;
+		margin-right: auto;
+}
+
+@media (min-width: 1200px) {
+	.example {
+		position: relative;
+		max-width: 1400px;
+	}
+
+	.example .code {
+		position: relative;
+		float: left;
+		width: 33%;
+		left: 0;
+	}
+
+	h1, h2, h3 {
+		clear: both;
+	}
+}

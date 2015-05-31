@@ -35,11 +35,15 @@ small {
 	font-size: 9pt;
 }
 
-p, .logobox, ul, table {
+p, .logobox, ul, table, h1, h2, h3 {
 	box-sizing: border-box;
 	max-width: 18cm;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 p.code {
 	font-family: monospace;
 }
+
+{% wiki %}
