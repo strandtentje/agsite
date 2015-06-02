@@ -9,7 +9,7 @@ label, input, textarea {
 }
 
 @media (min-width: 1200px) {
-	p, ul, table, h1, h2, h3 {
+	p, ul, table, h1, h2, h3, .subtitle {
 		position: relative;
 		left: -1.6cm;
 	}

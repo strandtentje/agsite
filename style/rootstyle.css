@@ -94,7 +94,7 @@ small {
 	font-size: 9pt;
 }
 
-p, .logobox, ul, table, h1, h2, h3 {
+p, .logobox, ul, table, h1, h2, h3, .subtitle {
 	box-sizing: border-box;
 	max-width: 18cm;
 	margin-left: auto;
@@ -102,9 +102,23 @@ p, .logobox, ul, table, h1, h2, h3 {
 	margin-top: 0;
 }
 
-h1, h2 ,h3 {
+h2.subtitled {
+	padding-bottom: 0;
+	margin-bottom: 0;	
+}
 
+span.subtitle {
+	padding-bottom: 0.5cm;
+	font-style: italic;
+	display: block;
+}
+
+h1, h2 ,h3 {
 	padding-top: 1ex;
+}
+
+h2 {
+	border-bottom: solid 2px white;
 }
 
 p.code {
@@ -112,3 +126,41 @@ p.code {
 }
 
 {% wiki %}
+
+.projects p a {
+	display: block;
+}
+
+.projects {
+	max-width: 18cm;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.projects>div {
+	box-sizing: border-box;
+	padding-right: 1cm;
+	float: left;	
+	width: 9cm;
+}
+
+ul.concatenation {
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+	max-width: 18cm;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+ul.concatenation li {
+	display: inline;
+}
+
+ul.concatenation li + li:before {
+	content: ', ';
+}
+
+ul.concatenation li:last-child:before {
+	content: ' and ';
+}
