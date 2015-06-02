@@ -7,26 +7,66 @@
 </div>
 <div class="blank title bar">
 	<p>
-		ApolloGeese represents a design philosophy, a collection of modules relevant to web development and a simple object-notation language to loosely couple them together according to the design philosophy.
+		ApolloGeese is a design philosophy, a collection of modules relevant to web development and a simple object-notation language to loosely couple them together according to this design philosophy.
 	</p>
 	<p>
 		The current proof-of-concept implementation has been done in Mono C#.
 	</p>
 </div>
+<div class="blank projects bar">
+	<h2>Projects already using ApolloGeese/CLON</h2>
+	<div>		
+		<h3>DeelDoos</h3>
+		<p>
+			A simple, largely browser based HTTP filesharing tool. <a href="//github.com/strandtentje/deeldoos">View Repository</a>
+		</p> 
+	</div>
+	<div>	
+		<h3>MegaLAN website</h3>
+		<p>
+			Information and registration portal for the RuG FMNS MegaLAN. <a href="//www.megalan.nl/">View website</a> <a href="//github.com/strandtentje/megalan">View repository</a>
+		</p>
+	</div>
+	<div>	
+		<h3>Crash and Compile</h3>
+		<p>
+			Crash and compile registration and score system. <a href="//crashandcompile.nl/">View website</a> <a href="//crashandcompile.nl/score">View scores</a>
+		</p>
+	</div>
+	<div>	
+		<h3>Wiki Module</h3>
+		<p>
+			Versioning Wiki, uses MySQL and above Login module. <a href="/wiki">This site use it</a> <a href="//github.com/strandtentje/agwiki">View repository</a>
+		</p>
+	</div>
+	<div>		
+		<h3>Login Module</h3>
+		<p>
+			Usename/password login Module, uses MySQL. <a href="//github.com/strandtentje/aglogin">View repository</a>
+		</p>
+	</div>
+</div>
 <div class="detaroced bar">
-	<h2>Defects in modern software architecture</h2>
+	<h2 class="subtitled">
+		But why
+	</h2>
+	<span class="subtitle">
+		Or: Defects in modern software architecture
+	</span>
 	<p>
 		In any given software design, more than 90%* of the program flow consists of merely a handful of similar elements chained together in a hierarchical fashion, exchanging typically trivial amounts of information. Tight coupling however negates this effect and makes software projects less sustainable.<br>
-		<small>* 90% of percentages are just made up</small>
+		<small>
+			* 90% of percentages are just made up
+		</small>
 	</p>	
-	<h2>Creative limitations</h2>
+	<h3>Creative limitations</h3>
 	<p>
 		By restricting the amount of intricacies a developer may introduce to a software product, and offering only very abstract components and relations, a gain in development time may be achieved. An even larger gain in quality may be achieved due to the reuse of components that have already been implemented, and tested many times thereafter.
 	</p>
 	<p>
-		ApolloGeese/CLON aims to implement this theory using a framework and language (more on the latter, later.)
+		ApolloGeese/CLON aims to make this idea practical using a framework and language (more on the latter, later.)
 	</p> 
-	<h2>Implementation</h2>
+	<h2>Basics of the Philosophy</h2>
 	<p>
 		At the basis of the design philosophy lay Services and Interactions. Services are the active components of a software design. Interactions provide the connections over which Services may exchange data.
 	</p>
@@ -66,47 +106,14 @@
 			Means to access and mutate information about on earlier interaction in the hierarchy.
 		</li>
 	</ul>
+	<h2>A selection of existing services</h2>
+	<p>
+		Even though the design pattern is quite universal, it's been mostly used to build modules for web development, such as:
+	</p>
+	<ul class="concatenation">
+		<li><a href="/wiki/Sessionizer">Sessionizer</a></li><li><a href="/wiki/MySqlQuerier">MySqlQuerier</a></li><li><a href="/wiki/Cache">Cache</a></li><li><a href="/wiki/PostFieldReader">Form verification</a></li><li><a href="/wiki/SiteSubsection">URL section</a></li><li><a href="/wiki/SendMail">Mail sender</a></li><li><a href="/wiki/Template">Template</a></li>
+	</ul>
 </div>
-<div class="blank bar">
-	<h2>Modules</h2>
-	<p>
-		About 40 Services have been development at the time of writing this, which provides a toolkit sizable enough to quickly put together most common website scenarios.
-	</p>
-	<p>
-		A couple of modules most prevalent in software projects built using ApolloGeese/CLON
-	</p>
-	<h3>HTTP Server</h3>
-	<p>
-		Listens on one or multiple ports and prefixes for incoming HTTP requests and creates an Interaction upon each request, wherein an URL-queue, header-data and body-data exist.
-	</p>
-	<h3>SiteSubsection</h3>
-	<p>
-		Uses the URL information from previous Interactions to deviate into an appropriate branch of the program flow. Provides Interactions with the current URL-/section/ name.
-	</p>
-	<h3>Template</h3>
-	<p>
-		Uses either existing information from preceding Interactions or underlying branches to fill in template labels.
-	</p>
-	<h3>GetFieldReader</h3>
-	<p>
-		Parses the query-section of the URL, verifies this input and branches onwards depending whether or not verification was successful. It provides an Interaction with the parsed and sanitized input.
-	</p>
-	<h3>PostFieldReader</h3>
-	<p>
-		Shares many traits with the <b>GetFieldReader</b>, but instead parses and verifies the HTML POST-body into an Interaction.
-	</p>	
-	<h3>MySqlQuerier</h3>
-	<p>
-		Uses values from earlier Interactions to fill in a parameterized query. It branches for single results, each result, and no results. It provides Interactions with acquired row values, if any.
-	</p>	
-	<h3>More Services...</h3>
-	<p>		
-		<a href="/wiki/servicelist">
-			View a list of all modules on the Wiki
-		</a>
-	</p>
-</div>
-
 <div class="detaroced bar">	
 	<h2>Connecting Services</h2>
 	<p>
@@ -130,7 +137,7 @@
 		<li>Strictly object oriented</li>		
 	</ul>
 	<p>
-		CLON is short for 'C-Like Object Notation', and shares some traits with JSON
+		CLON is short for 'C-Like Object Notation', and shares some traits with JSON, the most notable difference being references.
 	</p>
 	<p>
 		CLON may be used to string ApolloGeese services together, like we did for this website as follows:
