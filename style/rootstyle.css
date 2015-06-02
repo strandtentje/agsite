@@ -115,6 +115,7 @@ span.subtitle {
 
 h1, h2 ,h3 {
 	padding-top: 1ex;
+	clear: both;
 }
 
 h2 {
