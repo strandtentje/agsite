@@ -71,7 +71,7 @@ body {
 }
 
 .content a {
-	color: yellow;
+	color: #9ff;
 }
 
 
@@ -164,4 +164,10 @@ ul.concatenation li + li:before {
 
 ul.concatenation li:last-child:before {
 	content: ' and ';
+}
+
+.footer {
+	background: black;
+	color: white;
+	text-align: center;
 }
