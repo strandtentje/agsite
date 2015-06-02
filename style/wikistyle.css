@@ -4,6 +4,7 @@ label, input, textarea {
 
 .example {
 	max-width: 18cm;
+	margin-bottom: 0.5cm;
 	margin-left: auto;
 	margin-right: auto;
 }
